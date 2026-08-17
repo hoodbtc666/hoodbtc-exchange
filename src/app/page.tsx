@@ -1,9 +1,15 @@
-import LiveMarket from "@/components/LiveMarket";
-import LiveChart from "@/components/LiveChart";
-import LiveOrderBook from "@/components/LiveOrderBook";
-import WalletButton from "@/components/WalletButton";
+"use client";
 
-function Header(){return <header className="header"><div className="brand"><span className="mark">H</span><span>HOODBTC</span></div><nav><a className="active">Trade</a><a>Markets</a><a>Portfolio</a><a>Leaderboard</a></nav><div className="headerActions"><span className="status"><i/> Network live</span><WalletButton/></div></header>}
-function OrderForm(){return <aside className="panel orderPanel"><div className="orderTabs"><button className="active">Market</button><button>Limit</button><button>Advanced</button></div><div className="sideSwitch"><button className="long active">Long</button><button className="short">Short</button></div><div className="balance"><span>Available</span><b>— USDC</b></div><label className="fieldLabel">Order size</label><div className="input"><span>0.00</span><b>ETH</b></div><div className="slider"><span/><i/><i/><i/><i/></div><div className="percent"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div><div className="setting"><span>Leverage</span><button>—</button></div><div className="setting"><span>Margin mode</span><button>—</button></div><label className="check"><input type="checkbox"/> Take profit / Stop loss</label><WalletButton/><div className="summary"><div><span>Est. liquidation</span><b>—</b></div><div><span>Trading fee</span><b>—</b></div><div><span>Order value</span><b>—</b></div></div><p className="noncustodial">Non-custodial execution · You control your wallet</p></aside>}
-function Bottom(){return <section className="panel bottom"><div className="bottomTabs"><button className="active">Positions <em>0</em></button><button>Open orders <em>0</em></button><button>Order history</button><button>Trade history</button><button>Funding</button></div><div className="empty"><div>◎</div><b>No account data loaded</b><span>Connect a wallet to load account trading data.</span></div></section>}
-export default function Home(){return <main><Header/><LiveMarket/><div className="terminal"><div className="workspace"><div className="upper"><LiveChart/><LiveOrderBook/></div><Bottom/></div><OrderForm/></div><footer><span>HOODBTC</span><span>Decentralized trading interface</span><span className="positive">● Orderly market data</span></footer></main>}
+import { TradingPage } from "@orderly.network/trading";
+
+export default function Home() {
+  return (
+    <div className="hoodbtcTradingShell">
+      <div className="hoodbtcBrandBar">
+        <div className="hoodbtcBrand"><span>H</span><b>HOODBTC</b></div>
+        <div className="hoodbtcLive">● MAINNET</div>
+      </div>
+      <TradingPage symbol="PERP_ETH_USDC" />
+    </div>
+  );
+}
