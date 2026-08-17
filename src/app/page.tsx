@@ -1,8 +1,10 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { TradingPage } from "@orderly.network/trading";
+import { TradingPage, type TradingPageProps } from "@orderly.network/trading";
 import type { API } from "@orderly.network/types";
+
+const TRADING_VIEW_CONFIG = {} as TradingPageProps["tradingViewConfig"];
 
 export default function Home() {
   const [symbol, setSymbol] = useState("PERP_ETH_USDC");
@@ -20,6 +22,7 @@ export default function Home() {
       <TradingPage
         symbol={symbol}
         onSymbolChange={onSymbolChange}
+        tradingViewConfig={TRADING_VIEW_CONFIG}
       />
     </div>
   );
