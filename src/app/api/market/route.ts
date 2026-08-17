@@ -25,7 +25,7 @@ export async function GET() {
   try {
     const [marketResponse, tradesResponse] = await Promise.all([
       fetch(`${ORDERLY_API}/v1/public/futures_market?symbol=${SYMBOL}`, { cache: "no-store" }),
-      fetch(`${ORDERLY_API}/v1/public/market_trades?symbol=${SYMBOL}&limit=10`, { cache: "no-store" }),
+      fetch(`${ORDERLY_API}/v1/public/market_trades?symbol=${SYMBOL}&limit=500`, { cache: "no-store" }),
     ]);
 
     if (!marketResponse.ok || !tradesResponse.ok) {
