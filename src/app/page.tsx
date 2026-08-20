@@ -20,12 +20,10 @@ export default function Home() {
         </a>
         <nav className="proNav" aria-label="Trading navigation">
           <span className="active">Futures</span>
-          <span>Markets</span>
-          <span>Portfolio</span>
-          <span>Rewards</span>
         </nav>
         <div className="proRight">
           <span className="networkDot"><i /> Mainnet</span>
+          <span className="proTag">Non-Custodial</span>
           <a href="https://hoodbtc.com" target="_blank" rel="noreferrer">HOODBTC.COM ↗</a>
         </div>
       </header>
