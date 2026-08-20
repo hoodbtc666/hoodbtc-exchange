@@ -7,35 +7,29 @@ import type { API } from "@orderly.network/types";
 const TRADING_VIEW_CONFIG = {} as TradingPageProps["tradingViewConfig"];
 
 export default function Home() {
-  const [symbol, setSymbol] = useState("PERP_ETH_USDC");
-
-  const onSymbolChange = useCallback((data: API.Symbol) => {
-    setSymbol(data.symbol);
-  }, []);
+  const [symbol, setSymbol] = useState("PERP_BTC_USDC");
+  const onSymbolChange = useCallback((data: API.Symbol) => setSymbol(data.symbol), []);
 
   return (
-    <div className="hoodbtcTradingShell">
-      <header className="hoodbtcBrandBar">
-        <div className="hoodbtcBrand">
-          <img className="hoodbtcBrandLogo" src="https://hoodbtc.com/hoodbtc-logo.png" alt="HOODBTC" />
-          <div className="hoodbtcBrandText">
-            <b>HOOD<span>BTC</span></b>
-            <small>DECENTRALIZED TRADING</small>
-          </div>
-        </div>
-        <div className="hoodbtcHeaderRight">
-          <div className="hoodbtcLive"><i /> MAINNET</div>
-          <a className="hoodbtcHomeLink" href="https://hoodbtc.com" target="_blank" rel="noreferrer">HOODBTC.COM ↗</a>
+    <main className="hoodbtcTradingShell">
+      <header className="proTopbar">
+        <a className="proBrand" href="https://hoodbtc.com" aria-label="HOODBTC home">
+          <img src="https://hoodbtc.com/hoodbtc-logo.png" alt="HOODBTC" />
+          <strong>HOODBTC</strong>
+        </a>
+        <nav className="proNav" aria-label="Trading navigation">
+          <span className="active">Trade</span>
+          <span>Markets</span>
+          <span>Portfolio</span>
+        </nav>
+        <div className="proRight">
+          <span className="networkDot"><i /> Mainnet</span>
+          <a href="https://hoodbtc.com" target="_blank" rel="noreferrer">Home ↗</a>
         </div>
       </header>
-
-      <div className="hoodbtcTradeFrame">
-        <TradingPage
-          symbol={symbol}
-          onSymbolChange={onSymbolChange}
-          tradingViewConfig={TRADING_VIEW_CONFIG}
-        />
-      </div>
-    </div>
+      <section className="hoodbtcTradeFrame">
+        <TradingPage symbol={symbol} onSymbolChange={onSymbolChange} tradingViewConfig={TRADING_VIEW_CONFIG} />
+      </section>
+    </main>
   );
 }
