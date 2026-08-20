@@ -10,6 +10,7 @@
   "dependencies": {
     "@orderly.network/hooks": "^2.8.14",
     "@orderly.network/i18n": "^2.8.14",
+    "@orderly.network/portfolio": "^2.8.14",
     "@orderly.network/react-app": "^2.8.14",
     "@orderly.network/trading": "^2.8.14",
     "@orderly.network/types": "^2.8.14",
